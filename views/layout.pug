@@ -1,0 +1,40 @@
+doctype html
+html
+    head
+        title Main Page 
+        link(rel="stylesheet", href="/css/bootstrap.min.css")
+        link(rel="stylesheet", href="/css/style.css")
+    body
+        nav.navbar.navbar-inverse
+            .container
+                .navbar-header
+                    button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+                        span.sr-only Toggle navigation
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                    a.navbar-brand(href='/') Node Express
+                #navbar.collapse.navbar-collapse
+                    ul.nav.navbar-nav
+                        if user
+                            li
+                                a(href='/users/logout') Logout
+                            li
+                                a(href='/') Home
+                            if user
+                                li
+                                    a(href='/articles/add') Add Article
+                        else
+                            ul.nav.navbar-nav.navbar-right
+                                li
+                                    a(href='/users/register') Register
+                                li
+                                    a(href='/users/login') Login
+                        
+        block content
+        br
+        hr
+        footer
+            p Copyright &copy; 2018
+        script(src="/js/jquery-3.3.1.js")
+        script(src='/js/bootstrap.js')
